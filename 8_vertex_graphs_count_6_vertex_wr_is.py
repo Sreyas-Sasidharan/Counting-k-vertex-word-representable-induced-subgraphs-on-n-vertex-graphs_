@@ -72,10 +72,10 @@ all_6_subsets = list(combinations(vertices, 6)) #all possible 7-vertex subsets o
 
 #Testing phase
 for G in all_8_vertex_graphs_to_be_tested:
-    is_bad = True  #indicates that the 7-vertex graph G under consideration has no word-representable 6-vertex I.S.
+    is_bad = True  #indicates that the 8-vertex graph G under consideration has no word-representable 6-vertex I.S.
     wr_subgraph_6_vertex_count=0 #will count the number of 6-vertex word-representable induced subgraphs in graph G. 
     for t in all_6_subsets:
-        H = G.subgraph(t) #induced subgraph of G on 7-vertex set 't'.
+        H = G.subgraph(t) #induced subgraph of G on 6-vertex set 't'.
         if H.is_isomorphic(Non_wr_6_vertex_graph):
             continue
         else:
@@ -85,4 +85,4 @@ for G in all_8_vertex_graphs_to_be_tested:
     if is_bad:
         graphs_with_no_6_vertex_wr_subgraph.append(G)
 print("Lowest value in the 'wr_subgraphs_6_vertex_count_list' list", min(wr_subgraphs_6_vertex_count_list))
-#Every 7-vertex graph have at least min(wr_subgraphs_6_vertex_count_list) number of 6-vertex word-representable induced subgraphs.
+#Every 8-vertex graph have at least min(wr_subgraphs_6_vertex_count_list) number of 6-vertex word-representable induced subgraphs.
